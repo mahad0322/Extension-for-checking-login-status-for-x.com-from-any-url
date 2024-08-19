@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Login Status Checker",
+  "version": "1.0",
+  "description": "Checks if the user is logged in on x.com",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.x.com/*"  
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/1.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.x.com/*"],  
+      "js": ["content.js"]
+    }
+  ]
+}
